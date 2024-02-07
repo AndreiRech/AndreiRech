@@ -1,40 +1,138 @@
-<svg fill="none" viewBox="0 0 600 300" width="600" height="300" xmlns="http://www.w3.org/2000/svg">
+<svg fill="none" viewBox="0 0 600 400" width="600" height="400" xmlns="http://www.w3.org/2000/svg">
   <foreignObject width="100%" height="100%">
-    <div xmlns="http://www.w3.org/1999/xhtml">
-            <style>
-            body {
-              background: #333;
-              padding-top: 5em;
-              display: flex;
-              justify-content: center;
-            }
-            
-            .title h1 {
-              font-family: monospace;
-              overflow: hidden;
-              border-right: .15em solid orange;
-              white-space: nowrap;
-              margin: 0 auto;
-              letter-spacing: .15em;
-              animation: 
-                typing 3.5s steps(30, end),
-                blink-caret .5s step-end 3.5s infinite;
-            }
-            
-            @keyframes typing {
-              from { width: 0 }
-              to { width: 100% }
-            }
-            
-            @keyframes blink-caret {
-              from, to { border-color: transparent }
-              50% { border-color: orange }
-            }
+  <div xmlns="http://www.w3.org/1999/xhtml">
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        color: inherit;
+        text-decoration: none;
+        list-style: none;
+        outline: none;
+        box-sizing: border-box;
+      }
 
-            </style>
-            <div class="title">
-                <h1>Welcome Besto Friendo 👋</h1>
-            </div>
-        </div>
-    </foreignObject>
+      .body {
+        --color-main: #9B5DE5;
+        --color-primary: #F15BB5;
+        --color-secondary: #00BBF9;
+        --color-background: #ffffff;
+      
+        height: 400px;
+        width: 100%;
+        text-transform: uppercase;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        background-image: radial-gradient(var(--color-main), var(--color-primary), var(--color-secondary));
+        animation: border 5s linear infinite;
+        background-size: 200% 200%;
+        background-position: 0 0;
+        border: 24px solid;
+        border-color: var(--color-background);
+      }
+
+      .container {
+        background: var(--color-background);
+        height: calc(100% - 10px);
+        width: calc(100% - 10px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 4rem;
+        font-weight: 800;
+        font-family: "Open Sans", sans-serif;
+        text-align: center;
+        animation: changeColor 10s ease-in-out infinite;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        font-family: "Open Sans", sans-serif;
+        text-align: center;
+        color: var(--color-main);
+      }
+
+      .items {
+        margin-top: 24px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+      
+      ul {
+        font-size: 16px;
+        line-height: 26px;
+        font-weight: 700;
+        font-family: "Open Sans", sans-serif;
+      }
+
+      .type-1 {
+        color: var(--color-primary);
+      }
+
+      .type-2 {
+        color: var(--color-secondary);
+      }
+
+      .hi {
+        display: inline-block;
+        transform-origin: 70% 70%;
+        animation: hi 3s linear -2s infinite;
+      }
+
+      @keyframes border {
+        0% { background-position: 0 0; }
+        20% { background-position: 100% 0; }
+        40% { background-position: 100% 100%; }
+        60% { background-position: 0 100%; }
+        100% { background-position: 0 0; }
+      }
+
+      @keyframes hi {
+        25% { transform: rotate(0deg); }
+        30% { transform: rotate(15deg); }
+        35% { transform: rotate(0deg); }
+        40% { transform: rotate(15deg); }
+        45% { transform: rotate(0deg); }
+        80% { transform: rotate(0deg); }
+        85% { transform: rotate(15deg); }
+        90% { transform: rotate(0deg); }
+        95% { transform: rotate(15deg); }
+        100% { transform: rotate(0deg); }
+      }
+
+      @keyframes changeColor {
+        0% { color: var(--color-main); }
+        25% { color: var(--color-primary); } 
+        50% { color: var(--color-secondary); }
+        75% { color: var(--color-primary); }
+        100% { color: var(--color-main); }
+      }
+    </style>
+    
+    <div class='body'>
+      <div class='container'>
+        <h1>Andrei Rech</h1>
+        <h2><span class='hi'>👋</span> Welcome Friendo <span class='hi'>👋</span></h2>
+        <section class='items'>
+          <ul>
+            <li class="type-1">📚 Software Engineer | PUCRS</li>
+            <li class="type-2">💻 Java | JavaScript | Python | CSS - HTML </li>
+            <li class="type-1">🎮 Games | Music | Books | Animes | Gym</li>
+            <li class="type-2">🎯 Learning Japonese and JavaScript</li>
+          </ul>
+        </section>
+      </div>
+    </div>
+  </div>
+  </foreignObject>
 </svg>
