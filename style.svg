@@ -1,291 +1,105 @@
-<svg fill="none" viewBox="0 0 800 550" width="800" height="550" xmlns="http://www.w3.org/2000/svg">
+<svg fill="none" viewBox="0 0 600 400" width="600" height="400" xmlns="http://www.w3.org/2000/svg">
     <foreignObject width="100%" height="100%">
         <div xmlns="http://www.w3.org/1999/xhtml">
             <style>
-                @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
-                @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-                
-                * {
-                    margin: 0; padding: 0; color: inherit; text-decoration: none; list-style: none; outline: none; box-sizing: border-box;
-                }
                 .body {
-                    --color-background-dark: #1a1a2e; /* Mais escuro para contraste */
-                    --color-text-light: #e0e0e0;
-                    --color-accent-red: #e94560; /* Vermelho mais vibrante */
-                    --color-accent-blue: #0f3460; /* Azul escuro principal */
-                    --color-accent-blue-light: #537d9c; /* Azul claro para detalhes */
-                    --color-money-yellow: #ffb84d;
+                    --color-background-dark: #222c3c;
+                    --color-text-light: #ffffff;
+                    --color-accent-red: #ff4d4d;
+                    --color-accent-blue: #00bfff;
+                    --color-money-yellow: #f8e71c;
                     --font-family-mono: 'Space Mono', monospace;
-                    --font-family-pixel: 'Press Start 2P', cursive; /* Para alguns detalhes */
-
-                    height: 550px; width: 800px; display: flex; align-items: center; justify-content: center;
+                    height: 400px; width: 100%; display: flex; align-items: center; justify-content: center;
                     background-color: var(--color-background-dark);
                     font-family: var(--font-family-mono); color: var(--color-text-light);
                     overflow: hidden; position: relative;
-                    border: 4px solid var(--color-accent-blue);
-                    box-shadow: 0 0 20px var(--color-accent-blue-light);
                 }
                 .container {
-                    background-color: #0d0d1a; /* Fundo mais escuro ainda para seções */
-                    border: 2px solid var(--color-accent-blue-light);
-                    padding: 25px; display: grid;
-                    grid-template-columns: 0.8fr 1.2fr; /* Colunas para o layout principal */
-                    grid-template-rows: auto auto 1fr; /* Linhas para info, repos, stats */
-                    gap: 25px; width: 95%; height: 95%;
-                    box-shadow: inset 0 0 10px rgba(0, 191, 255, 0.1); /* Sombra interna sutil */
+                    background-color: #1a222c; border: 2px solid var(--color-accent-blue);
+                    padding: 20px; display: grid; grid-template-columns: 1fr 1.5fr;
+                    gap: 20px; width: 90%; max-width: 550px; height: 90%;
+                    box-shadow: 0 0 15px rgba(0, 191, 255, 0.5); position: relative;
                 }
-
-                /* Seção Esquerda - Info Pessoal */
-                .section-info {
-                    grid-column: 1 / 2;
-                    grid-row: 1 / 2;
-                    display: flex; flex-direction: column; align-items: center; gap: 12px;
-                    border-right: 1px dashed var(--color-accent-blue);
-                    padding-right: 20px;
-                }
-                .avatar {
-                    width: 140px; height: 140px; border-radius: 50%;
-                    border: 4px solid var(--color-accent-red);
-                    box-shadow: 0 0 15px var(--color-accent-red);
-                    display: flex; align-items: center; justify-content: center;
-                    background-color: #000;
-                    position: relative;
-                    overflow: hidden;
-                }
-                .avatar-glitch {
-                    position: absolute; width: 100%; height: 100%;
-                    background: linear-gradient(to bottom, #ff00ff, #00ffff);
-                    opacity: 0.1;
-                    animation: glitch 0.5s infinite alternate;
-                }
-                .avatar-text {
-                    font-family: var(--font-family-pixel);
-                    font-size: 2.5rem;
-                    color: var(--color-text-light);
-                    position: relative;
-                    z-index: 2;
-                    text-shadow: 0 0 5px #fff, 0 0 10px #0ff;
-                }
-
-                .bounty {
-                    font-size: 2rem; font-weight: bold; color: var(--color-money-yellow);
-                    text-shadow: 0 0 10px rgba(255, 184, 77, 0.8);
-                    animation: pulse 2.5s infinite ease-in-out;
-                    font-family: var(--font-family-pixel);
-                    margin-top: 10px;
-                }
-                .id-number {
-                    font-size: 0.9rem; color: rgba(224, 224, 224, 0.8); background-color: rgba(0, 0, 0, 0.4);
-                    padding: 6px 12px; border-radius: 4px; letter-spacing: 1px;
-                    margin-top: 5px;
-                }
-                .contact-info {
-                    font-size: 0.85rem; margin-top: 15px;
-                    text-align: center;
-                }
-                .contact-info a {
-                    color: var(--color-accent-blue-light);
-                    text-decoration: underline;
-                    margin: 0 5px;
-                }
-                .contact-info a:hover {
-                    color: #fff;
-                }
-
-
-                /* Seção Direita Superior - Detalhes Pessoais */
-                .section-details {
-                    grid-column: 2 / 3;
-                    grid-row: 1 / 2;
-                    display: flex; flex-direction: column; gap: 10px;
-                    padding-left: 20px;
-                }
-                .wanted-header {
-                    font-family: var(--font-family-pixel);
-                    font-size: 1.1rem; font-weight: bold; color: var(--color-accent-red);
-                    text-align: center; letter-spacing: 2px;
-                    border-bottom: 2px dashed var(--color-accent-blue-light); padding-bottom: 8px; margin-bottom: 10px;
-                    text-shadow: 0 0 5px var(--color-accent-red);
-                }
-                .name {
-                    font-family: var(--font-family-pixel);
-                    font-size: 1.8rem; font-weight: bold; color: var(--color-text-light);
-                    text-align: center; margin-bottom: 15px;
-                    text-shadow: 0 0 8px var(--color-text-light);
-                }
-                .info-grid {
-                    display: grid; grid-template-columns: auto 1fr; gap: 8px 15px; font-size: 0.9rem;
-                }
-                .info-label { color: var(--color-accent-blue-light); font-weight: bold; }
-                .info-value { color: var(--color-text-light); }
-                .criminal-record-header {
-                    font-family: var(--font-family-pixel);
-                    font-size: 0.9rem; font-weight: bold; color: var(--color-accent-red);
-                    margin-top: 20px; margin-bottom: 8px;
-                    border-bottom: 1px dashed var(--color-accent-blue-light); padding-bottom: 5px;
-                }
-                .record-list { font-size: 0.85rem; list-style: none; padding-left: 0; }
-                .record-list li { margin-bottom: 4px; position: relative; padding-left: 18px; }
-                .record-list li::before { content: "•"; color: var(--color-accent-blue-light); position: absolute; left: 0; }
+                .section-left { display: flex; flex-direction: column; align-items: center; gap: 15px; }
                 
-
-                /* Seção Inferior Esquerda - Repositórios */
-                .section-repos {
-                    grid-column: 1 / 2;
-                    grid-row: 2 / 3; /* Abaixo da info pessoal */
-                    border-right: 1px dashed var(--color-accent-blue);
-                    padding-right: 20px;
-                    padding-top: 20px; /* Espaçamento entre seções */
+                /* Avatar modificado para mostrar '?' */
+                .avatar {
+                    width: 120px; height: 120px; border-radius: 50%; border: 3px solid var(--color-accent-blue);
+                    box-shadow: 0 0 10px rgba(0, 191, 255, 0.7);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 5rem;
+                    color: var(--color-accent-blue);
+                    text-shadow: 0 0 8px var(--color-accent-blue);
+                    background-color: rgba(0,0,0,0.2);
                 }
-                .section-title {
-                    font-family: var(--font-family-pixel);
-                    font-size: 0.9rem; color: var(--color-accent-red); font-weight: bold;
-                    margin-bottom: 15px; text-align: center;
-                    border-bottom: 1px dashed var(--color-accent-blue-light); padding-bottom: 5px;
-                }
-                .repo-list { display: flex; flex-direction: column; gap: 10px; }
-                .repo-item {
-                    background-color: rgba(0, 0, 0, 0.3); padding: 8px 12px; border-radius: 4px;
-                    border: 1px solid var(--color-accent-blue);
-                    transition: all 0.2s ease-in-out;
-                }
-                .repo-item:hover {
-                    background-color: rgba(0, 0, 0, 0.5);
-                    transform: translateX(5px);
-                    border-color: var(--color-accent-red);
-                }
-                .repo-item a {
-                    font-size: 0.8rem; color: var(--color-text-light); display: flex; align-items: center;
-                }
-                .repo-item a::before {
-                    content: "›"; /* Ícone de seta */
-                    color: var(--color-money-yellow); margin-right: 8px; font-weight: bold;
-                }
-                .repo-item span {
-                    color: var(--color-accent-blue-light);
-                    font-size: 0.75rem; margin-left: auto;
+                .avatar::before {
+                    content: '?';
                 }
 
-                /* Seção Inferior Direita - Estatísticas */
-                .section-stats {
-                    grid-column: 2 / 3;
-                    grid-row: 2 / 3; /* Abaixo dos detalhes pessoais */
-                    padding-left: 20px;
-                    padding-top: 20px; /* Espaçamento entre seções */
+                .bounty { 
+                    font-size: 1.8rem; font-weight: bold; color: var(--color-money-yellow);
+                    text-shadow: 0 0 8px rgba(248, 231, 28, 0.7);
+                    animation: pulse 2.5s infinite ease-in-out; /* Animação de pulsação */
                 }
-                .stats-link img {
-                    width: 100%; height: auto; border: 1px solid var(--color-accent-blue);
-                    border-radius: 4px; margin-bottom: 10px;
-                    transition: transform 0.2s ease-in-out;
-                }
-                .stats-link img:hover {
-                    transform: scale(1.02);
-                }
+                .id-number { font-size: 0.9rem; color: rgba(255, 255, 255, 0.8); background-color: rgba(0, 0, 0, 0.3); padding: 5px 10px; border-radius: 3px; letter-spacing: 1px; }
+                .section-right { display: flex; flex-direction: column; gap: 10px; }
+                .wanted-header { font-size: 1.2rem; font-weight: bold; color: var(--color-accent-red); text-align: center; letter-spacing: 2px; border-bottom: 1px dashed var(--color-accent-blue); padding-bottom: 5px; margin-bottom: 10px; }
+                .name { font-size: 1.6rem; font-weight: bold; color: var(--color-text-light); text-align: center; margin-bottom: 10px; }
+                .info-grid { display: grid; grid-template-columns: auto 1fr; gap: 5px 10px; font-size: 0.85rem; }
+                .info-label { color: var(--color-accent-blue); font-weight: bold; }
+                .info-value { color: var(--color-text-light); }
+                .criminal-record-header { font-size: 1rem; font-weight: bold; color: var(--color-accent-red); margin-top: 15px; margin-bottom: 5px; border-bottom: 1px dashed var(--color-accent-blue); padding-bottom: 3px; }
+                .record-list { font-size: 0.8rem; list-style: none; padding-left: 0; }
+                .record-list li { margin-bottom: 3px; position: relative; padding-left: 15px; }
+                .record-list li::before { content: "•"; color: var(--color-accent-blue); position: absolute; left: 0; }
 
-                /* Seção Final de Links (Rodapé) */
-                .section-footer-links {
-                    grid-column: 1 / 3; /* Ocupa as duas colunas */
-                    grid-row: 3 / 4; /* Na última linha */
-                    display: flex; justify-content: center; align-items: flex-end; /* Alinha ao fim do container */
-                    gap: 20px;
-                    padding-top: 20px;
-                    border-top: 1px dashed var(--color-accent-blue);
-                }
-                .footer-link {
-                    font-size: 0.8rem;
-                    color: var(--color-accent-blue-light);
-                    transition: color 0.2s ease-in-out;
-                }
-                .footer-link:hover {
-                    color: var(--color-text-light);
-                    text-decoration: underline;
-                }
-
-
-                /* Efeito de Scan Geral */
+                /* Efeito de Scan */
                 .scan-effect {
-                    position: absolute; top: 0; left: 0; width: 100%; height: 2%;
-                    background: rgba(0, 191, 255, 0.2); box-shadow: 0 0 10px rgba(0, 191, 255, 0.5);
-                    animation: scan 5s infinite linear; pointer-events: none;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 2%;
+                    background: rgba(0, 191, 255, 0.3);
+                    box-shadow: 0 0 10px rgba(0, 191, 255, 0.5);
+                    animation: scan 5s infinite linear;
+                    pointer-events: none;
                 }
 
                 /* Keyframes para as animações */
                 @keyframes scan {
                     0% { transform: translateY(-100%); }
-                    100% { transform: translateY(2000%); }
+                    100% { transform: translateY(2000%); } /* Aumentado para garantir que passe por tudo */
                 }
+
                 @keyframes pulse {
-                    0%, 100% { transform: scale(1); opacity: 1; }
-                    50% { transform: scale(1.03); opacity: 0.9; }
+                    0%, 100% { transform: scale(1); text-shadow: 0 0 8px rgba(248, 231, 28, 0.7); }
+                    50% { transform: scale(1.05); text-shadow: 0 0 15px rgba(248, 231, 28, 1); }
                 }
-                @keyframes glitch {
-                    0% { transform: translate(0); text-shadow: 0 0px #ff00ff, 0 0px #00ffff; }
-                    20% { transform: translate(-2px, 2px); text-shadow: 0 1px #ff00ff, 0 -1px #00ffff; }
-                    40% { transform: translate(2px, -2px); text-shadow: 0 -1px #ff00ff, 0 1px #00ffff; }
-                    60% { transform: translate(-1px, 1px); text-shadow: 0 2px #ff00ff, 0 -2px #00ffff; }
-                    80% { transform: translate(1px, -1px); text-shadow: 0 -2px #ff00ff, 0 2px #00ffff; }
-                    100% { transform: translate(0); text-shadow: 0 0px #ff00ff, 0 0px #00ffff; }
-                }
+
             </style>
             <div class='body'>
                 <div class='container'>
-                    
-                    <div class='section-info'>
-                        <div class='avatar'>
-                            <div class="avatar-glitch"></div>
-                            <span class="avatar-text">404</span>
-                        </div>
+                    <div class='section-left'>
+                        <div class='avatar'></div>
                         <div class='bounty'>₩ 5,000,000</div>
                         <div class='id-number'>GH-USER-136367100</div>
-                        <div class="contact-info">
-                            <a href="https://linkedin.com/in/rechandrei" target="_blank">LinkedIn</a> | 
-                            <a href="mailto:andreirech22@outlook.com">Email</a>
-                        </div>
                     </div>
-
-                    <div class='section-details'>
-                        <div class='wanted-header'>WANTED DEVELOPER / ANDREI RECH</div>
+                    <div class='section-right'>
+                        <div class='wanted-header'>WANTED DEVELOPER</div>
                         <div class='name'>Andrei Rech</div>
                         <div class='info-grid'>
-                            <span class='info-label'>LOCATION:</span><span class='info-value'>Porto Alegre, RS, Brazil</span>
                             <span class='info-label'>FOCUS:</span><span class='info-value'>Full-Stack Dev</span>
-                            <span class='info-label'>LANGUAGES:</span><span class='info-value'>Java, TS/JS, Python, C</span>
-                            <span class='info-label'>FRAMEWORKS:</span><span class='info-value'>React, Node, FastAPI, Spring</span>
+                            <span class='info-label'>LANGUAGES:</span><span class='info-value'>Java, JS, Python, C</span>
                         </div>
                         <div class='criminal-record-header'>CURRENT ACTIVITIES</div>
                         <ul class='record-list'>
                             <li>Learning Japanese</li>
-                            <li>Exploring new tech & patterns</li>
                             <li>Building cool projects</li>
-                            <li>Gaming, Music, Books, Animes</li>
                         </ul>
                     </div>
-
-                    <div class="section-repos">
-                        <div class="section-title">FEATURED REPOSITORIES</div>
-                        <div class="repo-list">
-                            <div class="repo-item">
-                                <a href="https://github.com/AndreiRech/Boiadeiro" target="_blank">
-                                    Project X <span class="repo-stars">⭐ 123</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="section-stats">
-                        <div class="section-title">GITHUB STATS</div>
-                        <a href="https://github.com/AndreiRech?tab=repositories" target="_blank" class="stats-link">
-                            <img src="https://github-readme-stats.vercel.app/api?username=AndreiRech&show_icons=true&theme=dark&include_all_commits=true&count_private=true&hide_border=true&title_color=e94560&icon_color=0f3460&text_color=e0e0e0&bg_color=0d0d1a" alt="GitHub Stats">
-                        </a>
-                        <a href="https://github.com/AndreiRech/github-readme-stats" target="_blank" class="stats-link">
-                            <img src="https://github-readme-streak-stats.herokuapp.com/?user=AndreiRech&theme=dark&hide_border=true&ring=e94560&fire=e94560&currstreak=0f3460&stroke=0f3460&background=0d0d1a" alt="GitHub Streak">
-                        </a>
-                    </div>
-                    
-                    <div class="section-footer-links">
-                        <a href="https://github.com/AndreiRech" target="_blank" class="footer-link">GITHUB PROFILE</a>
-                    </div>
-
                 </div>
                 <div class="scan-effect"></div>
             </div>
