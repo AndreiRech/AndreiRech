@@ -1,241 +1,508 @@
 <svg fill="none" viewBox="0 0 800 720" width="800" height="720" xmlns="http://www.w3.org/2000/svg">
+
     <foreignObject width="100%" height="100%">
+
         <div xmlns="http://www.w3.org/1999/xhtml">
+
             <style>
+
                 * {
+
                     margin: 0; padding: 0; color: inherit; text-decoration: none; list-style: none; outline: none; box-sizing: border-box;
+
                 }
+
                 .body {
+
                     --color-background-dark: #120f20;
+
                     --color-text-light: #c0c0d0;
+
                     --color-accent-red: #e73d61;
+
                     --color-accent-blue: #0f1c40;
+
                     --color-accent-blue-light: #4a6c8e;
+
                     --color-money-yellow: #fdd835;
+
                     --color-glitch-cyan: #0ff;
+
                     --color-glitch-magenta: #f0f;
+
                     
-                    /* Fontes seguras para web */
-                    --font-family-header: Impact, 'Arial Black', sans-serif;
-                    --font-family-pixel: 'Courier New', Courier, monospace;
-                    --font-family-body: Consolas, 'Courier New', Courier, monospace;
+
+                    --font-family-mono: 'Courier New', Courier, monospace;
+
 
                     height: 720px; width: 800px; display: flex; align-items: center; justify-content: center;
+
                     background-color: var(--color-background-dark);
-                    font-family: var(--font-family-body);
+
+                    font-family: var(--font-family-mono);
+
                     color: var(--color-text-light);
+
                     overflow: hidden; position: relative;
+
                     border: 4px solid var(--color-accent-blue-light);
+
                     box-shadow: 0 0 30px var(--color-accent-blue-light);
-                }
-                .container {
-                    background-color: #0b0918;
-                    border: 2px solid var(--color-accent-blue);
-                    padding: 25px; display: grid;
-                    grid-template-columns: 0.9fr 1.1fr;
-                    grid-template-rows: auto 1fr auto;
-                    gap: 20px 25px; width: 98%; height: 98%;
-                    box-shadow: inset 0 0 15px rgba(0, 191, 255, 0.05);
-                    position: relative;
+
                 }
 
-                /* CAMADAS DE EFEITOS */
+                .container {
+
+                    background-color: #0b0918;
+
+                    border: 2px solid var(--color-accent-blue);
+
+                    padding: 20px; display: grid;
+
+                    grid-template-columns: 0.9fr 1.1fr;
+
+                    grid-template-rows: auto auto 1fr;
+
+                    gap: 20px; width: 98%; height: 98%;
+
+                    box-shadow: inset 0 0 15px rgba(0, 191, 255, 0.05);
+
+                    position: relative;
+
+                }
+
+
                 .glitch-overlay {
+
                     position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-                    pointer-events: none; mix-blend-mode: screen; z-index: 10;
+
+                    pointer-events: none;
+
+                    mix-blend-mode: screen;
+
+                    z-index: 10; /* Garante que fique acima de tudo para o efeito de glitch */
+
                 }
+
                 .glitch-line {
+
                     background-color: var(--color-glitch-cyan); opacity: 0.1;
+
                     height: 1px; width: 100%; position: absolute;
+
                     animation: glitchLine 0.5s infinite alternate;
+
                 }
+
                 .glitch-line:nth-child(2) { background-color: var(--color-glitch-magenta); animation-delay: 0.1s; }
+
                 .glitch-line:nth-child(3) { background-color: var(--color-glitch-cyan); opacity: 0.08; animation-delay: 0.2s; }
+
                 .glitch-line:nth-child(4) { background-color: var(--color-glitch-magenta); opacity: 0.05; animation-delay: 0.3s; }
 
-                /* CABEÇALHO */
-                .section-header {
-                    grid-column: 1 / 3; grid-row: 1 / 2;
-                    display: flex; align-items: center; gap: 20px;
-                    border-bottom: 2px dashed var(--color-accent-blue-light);
-                    padding-bottom: 20px;
+
+                .section-info {
+
+                    grid-column: 1 / 2; grid-row: 1 / 2; display: flex; flex-direction: column; align-items: center; gap: 10px;
+
+                    border-right: 1px dashed var(--color-accent-blue-light); padding-right: 15px;
+
                 }
+
                 .data-portrait {
-                    width: 140px; height: 140px; border-radius: 8px; border: 3px solid var(--color-accent-red);
+
+                    width: 150px; height: 150px; border-radius: 8px; border: 3px solid var(--color-accent-red);
+
                     box-shadow: 0 0 15px rgba(231, 61, 97, 0.7); display: flex; align-items: center; justify-content: center;
+
                     background-color: #05050d; position: relative; overflow: hidden;
-                    flex-shrink: 0;
+
+                    margin-bottom: 10px;
+
                 }
+
                 .data-portrait-grid {
+
                     position: absolute; width: 100%; height: 100%;
+
                     background-size: 15px 15px;
+
                     background-image: linear-gradient(to right, rgba(74, 108, 142, 0.2) 1px, transparent 1px),
+
                                       linear-gradient(to bottom, rgba(74, 108, 142, 0.2) 1px, transparent 1px);
+
                     animation: dataflow 15s linear infinite;
-                    z-index: 2;
+
+                    z-index: 2; /* Para as linhas ficarem acima da imagem */
+
                 }
+
                 .portrait-image {
-                    width: 100%; height: 100%; object-fit: cover; position: absolute;
-                    top: 0; left: 0; z-index: 1; filter: brightness(1.1) contrast(1.1) grayscale(0.2);
+
+                    width: 100%;
+
+                    height: 100%;
+
+                    object-fit: cover;
+
+                    position: absolute;
+
+                    top: 0;
+
+                    left: 0;
+
+                    z-index: 1; /* Para a imagem ficar abaixo das linhas da grid */
+
+                    filter: brightness(1.1) contrast(1.1);
+
+                    /* A animação de glow na imagem é opcional, mas o glitch-overlay já a afeta */
+
                 }
-                .header-text {
-                    display: flex; flex-direction: column; width: 100%;
-                }
-                .wanted-header {
-                    font-family: var(--font-family-header); font-size: 2.5rem; color: var(--color-accent-red);
-                    text-align: left; letter-spacing: 3px;
-                    text-shadow: 0 0 8px var(--color-accent-red);
-                }
-                .name {
-                    font-family: var(--font-family-header); font-size: 4rem; font-weight: 700; color: #fff;
-                    text-align: left; margin-bottom: 5px; letter-spacing: 1.5px;
-                    animation: neonGlow 3s infinite alternate;
-                    line-height: 1;
-                }
+
+
                 .bounty {
-                    font-size: 2rem; font-weight: bold; color: var(--color-money-yellow);
+
+                    font-size: 2.2rem; font-weight: bold; color: var(--color-money-yellow);
+
                     text-shadow: 0 0 12px rgba(253, 216, 53, 0.8); animation: pulse 2.5s infinite ease-in-out;
-                    font-family: var(--font-family-pixel);
+
+                    font-family: var(--font-family-mono); margin-top: 10px; letter-spacing: 1px;
+
                 }
 
-                /* CONTEÚDO PRINCIPAL */
-                .section-main {
-                    grid-column: 1 / 3; grid-row: 2 / 3;
-                    display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 25px;
-                    padding-top: 10px;
-                }
-                .section-title {
-                    font-family: var(--font-family-pixel); font-size: 1rem; color: var(--color-accent-red);
-                    font-weight: bold; margin-bottom: 15px; text-align: left;
-                    border-bottom: 1px dashed var(--color-accent-blue-light); padding-bottom: 5px; letter-spacing: 1px;
+                .id-number {
+
+                    font-size: 0.8rem; color: rgba(192, 192, 208, 0.7); background-color: rgba(0, 0, 0, 0.5);
+
+                    padding: 5px 10px; border-radius: 3px; letter-spacing: 1px; margin-top: 5px;
+
+                    border: 1px solid var(--color-accent-blue);
+
                 }
 
-                .info-grid { display: grid; grid-template-columns: auto 1fr; gap: 8px 12px; font-size: 0.9rem; align-items: center; }
-                .info-label { 
-                    font-family: var(--font-family-pixel); font-size: 0.8rem; 
-                    color: var(--color-accent-blue-light);
+                .contact-info { font-size: 0.8rem; margin-top: 15px; text-align: center; line-height: 1.5; }
+
+                .contact-info a { color: var(--color-accent-blue-light); text-decoration: none; margin: 0 5px; border-bottom: 1px dashed rgba(74, 108, 142, 0.5); }
+
+                .contact-info a:hover { color: #fff; border-bottom-color: #fff; }
+
+
+                .section-details {
+
+                    grid-column: 2 / 3; grid-row: 1 / 2; display: flex; flex-direction: column; gap: 8px; padding-left: 15px;
+
                 }
+
+                .wanted-header {
+
+                    font-family: var(--font-family-mono); font-size: 1.2rem; font-weight: bold; color: var(--color-accent-red);
+
+                    text-align: center; letter-spacing: 3px;
+
+                    border-bottom: 2px solid var(--color-accent-red); padding-bottom: 10px; margin-bottom: 15px;
+
+                    text-shadow: 0 0 8px var(--color-accent-red);
+
+                }
+
+                .name {
+
+                    font-family: var(--font-family-mono); font-size: 2.2rem; font-weight: bold; color: #fff;
+
+                    text-align: center; margin-bottom: 20px; 
+
+                    animation: neonGlow 3s infinite alternate; /* Aplicado ao nome */
+
+                }
+
+                .info-grid { display: grid; grid-template-columns: auto 1fr; gap: 6px 15px; font-size: 0.85rem; }
+
+                .info-label { color: var(--color-accent-blue-light); font-weight: bold; letter-spacing: 0.5px; }
+
                 .info-value { color: var(--color-text-light); }
-                .record-list { font-size: 0.85rem; list-style: none; padding-left: 0; line-height: 1.5; }
+
+                .criminal-record-header {
+
+                    font-family: var(--font-family-mono); font-size: 0.9rem; font-weight: bold; color: var(--color-accent-red);
+
+                    margin-top: 20px; margin-bottom: 10px;
+
+                    border-bottom: 1px dashed var(--color-accent-blue-light); padding-bottom: 5px; letter-spacing: 0.5px;
+
+                }
+
+                .record-list { font-size: 0.8rem; list-style: none; padding-left: 0; }
+
                 .record-list li { margin-bottom: 4px; position: relative; padding-left: 18px; }
+
                 .record-list li::before { content: "›"; color: var(--color-money-yellow); position: absolute; left: 0; font-weight: bold; }
 
-                .repo-list { display: flex; flex-direction: column; gap: 10px; }
-                .repo-item {
-                    background-color: rgba(0, 0, 0, 0.4); padding: 8px 12px; border-radius: 3px;
-                    border: 1px solid var(--color-accent-blue); transition: all 0.2s ease-in-out;
-                }
-                .repo-item:hover { background-color: rgba(0, 0, 0, 0.6); transform: translateX(3px); border-color: var(--color-accent-red); }
-                .repo-item-link { font-size: 0.85rem; color: var(--color-text-light); display: flex; align-items: center; }
-                .repo-item-link::before { content: "›"; color: var(--color-money-yellow); margin-right: 8px; font-weight: bold; }
-                .repo-item-link span { color: var(--color-accent-blue-light); font-size: 0.8rem; margin-left: auto; font-family: var(--font-family-pixel);}
-
-                .tools-list { display: flex; flex-wrap: wrap; gap: 10px; }
-                .tool-item {
-                    background-color: var(--color-accent-blue); color: var(--color-text-light);
-                    font-size: 0.8rem; padding: 5px 10px; border-radius: 4px;
-                }
                 
-                /* RODAPÉ */
-                .section-footer-log {
-                    grid-column: 1 / 3; grid-row: 3 / 4;
+
+                .section-repos {
+
+                    grid-column: 1 / 2; grid-row: 2 / 3; border-right: 1px dashed var(--color-accent-blue-light);
+
+                    padding-right: 15px; padding-top: 15px;
+
+                }
+
+                .section-title {
+
+                    font-family: var(--font-family-mono); font-size: 0.9rem; color: var(--color-accent-red); font-weight: bold;
+
+                    margin-bottom: 15px; text-align: center;
+
+                    border-bottom: 1px dashed var(--color-accent-blue-light); padding-bottom: 5px; letter-spacing: 0.5px;
+
+                }
+
+                .repo-list { display: flex; flex-direction: column; gap: 8px; }
+
+                .repo-item {
+
+                    background-color: rgba(0, 0, 0, 0.4); padding: 7px 10px; border-radius: 3px;
+
+                    border: 1px solid var(--color-accent-blue); transition: all 0.2s ease-in-out;
+
+                }
+
+                .repo-item:hover { background-color: rgba(0, 0, 0, 0.6); transform: translateX(3px); border-color: var(--color-accent-red); }
+
+                .repo-item a { font-size: 0.75rem; color: var(--color-text-light); display: flex; align-items: center; }
+
+                .repo-item a::before { content: "//"; color: var(--color-money-yellow); margin-right: 8px; font-weight: bold; }
+
+                .repo-item span { color: var(--color-accent-blue-light); font-size: 0.7rem; margin-left: auto; }
+
+
+                .section-terminal {
+
+                    grid-column: 2 / 3; grid-row: 2 / 3; padding-left: 15px; padding-top: 15px;
+
                     background-color: #05050d; border: 1px solid var(--color-accent-blue);
-                    padding: 15px 20px; border-radius: 5px;
-                    font-family: var(--font-family-pixel); font-size: 0.9rem;
-                    color: #0f0; line-height: 1.7;
-                    margin-top: auto;
+
+                    padding: 15px; border-radius: 5px;
+
+                    font-family: var(--font-family-mono); font-size: 0.8rem;
+
+                    color: #0f0; line-height: 1.4;
+
+                    position: relative; overflow: hidden;
+
                 }
-                .footer-prompt { color: var(--color-glitch-cyan); }
-                .footer-value { color: #fff; }
-                .footer-cursor {
-                    display: inline-block; width: 0.6em; height: 1em; background-color: #0f0;
-                    margin-left: 4px; animation: blink-caret 0.75s step-end infinite;
+
+                .terminal-prompt { color: #0f0; }
+
+                .terminal-input { color: #fff; }
+
+                .terminal-cursor {
+
+                    display: inline-block; width: 8px; height: 1em; background-color: #0f0;
+
+                    margin-left: 2px; animation: blink-caret 0.75s step-end infinite;
+
                 }
+
+                .terminal-output { color: #9c9; }
+
+
+                .section-footer-links {
+
+                    grid-column: 1 / 3; grid-row: 3 / 4; display: flex; justify-content: center; align-items: flex-end;
+
+                    gap: 25px; padding-top: 20px; border-top: 1px dashed var(--color-accent-blue-light);
+
+                }
+
+                .footer-link { font-size: 0.75rem; color: var(--color-accent-blue-light); transition: color 0.2s ease-in-out; letter-spacing: 1px; }
+
+                .footer-link:hover { color: var(--color-text-light); text-decoration: underline; }
+
 
                 .scan-effect {
+
                     position: absolute; top: 0; left: 0; width: 100%; height: 2%;
+
                     background: linear-gradient(to right, transparent, rgba(0, 191, 255, 0.2), transparent);
+
                     box-shadow: 0 0 15px rgba(0, 191, 255, 0.7);
+
                     animation: scan 8s infinite linear;
-                    pointer-events: none; opacity: 0.7; z-index: 9;
+
+                    pointer-events: none;
+
+                    opacity: 0.7;
+
+                    z-index: 9; /* Abaixo do glitch-overlay, mas acima do conteúdo */
+
                 }
 
-                @keyframes scan { 0% { transform: translateY(-100%); } 100% { transform: translateY(3500%); } }
+
+                @keyframes scan { 0% { transform: translateY(-100%); } 100% { transform: translateY(3000%); } } /* Aumentado um pouco mais */
+
                 @keyframes pulse { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.02); opacity: 0.95; } }
-                @keyframes glitchLine { 0% { transform: translateY(0); } 20% { transform: translate(-3px, 3px); } 40% { transform: translate(3px, -3px); } 60% { transform: translate(-2px, 2px); } 80% { transform: translate(2px, -2px); } 100% { transform: translate(0); } }
-                @keyframes dataflow { 0% { background-position: 0 0; } 100% { background-position: 0 150px; } }
-                @keyframes neonGlow { 0%, 100% { text-shadow: 0 0 5px rgba(255,255,255,0.4), 0 0 10px var(--color-glitch-cyan); } 50% { text-shadow: 0 0 8px #fff, 0 0 15px var(--color-glitch-cyan), 0 0 25px var(--color-glitch-magenta); } }
-                @keyframes blink-caret { from, to { background-color: transparent; } 50% { background-color: #0f0; } }
+
+                @keyframes glitchLine {
+
+                    0% { transform: translateY(0) scaleX(1); opacity: 0.1; }
+
+                    50% { transform: translateY(5px) scaleX(0.98); opacity: 0.15; }
+
+                    100% { transform: translateY(0) scaleX(1); opacity: 0.1; }
+
+                }
+
+                @keyframes dataflow {
+
+                    0% { background-position: 0 0; }
+
+                    100% { background-position: 0 100%; }
+
+                }
+
+                @keyframes neonGlow { /* Renomeado e ajustado para texto */
+
+                    0%, 100% { text-shadow: 0 0 5px rgba(255,255,255,0.4), 0 0 10px rgba(0,255,255,0.6); }
+
+                    50% { text-shadow: 0 0 8px #fff, 0 0 15px var(--color-glitch-cyan), 0 0 25px var(--color-glitch-magenta); }
+
+                }
+
+                @keyframes blink-caret {
+
+                    from, to { background-color: transparent; }
+
+                    50% { background-color: #0f0; }
+
+                }
+
             </style>
+
             <div class='body'>
+
                 <div class='container'>
+
                     <div class="glitch-overlay">
-                        <div class="glitch-line" style="top: 10%;"></div> <div class="glitch-line" style="top: 30%;"></div>
-                        <div class="glitch-line" style="top: 50%;"></div> <div class="glitch-line" style="top: 70%;"></div>
+
+                        <div class="glitch-line" style="top: 10%;"></div>
+
+                        <div class="glitch-line" style="top: 30%;"></div>
+
+                        <div class="glitch-line" style="top: 50%;"></div>
+
+                        <div class="glitch-line" style="top: 70%;"></div>
+
                         <div class="glitch-line" style="top: 90%;"></div>
-                    </div>
-                    
-                    <div class='section-header'>
-                        <div class='data-portrait'>
-                            <img src="data:image/jpeg;base64,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" alt="Andrei Rech Portrait" class="portrait-image" />
-                            <div class="data-portrait-grid"></div>
-                        </div>
-                        <div class="header-text">
-                            <div class='wanted-header'>WANTED DEVELOPER</div>
-                            <div class='name'>ANDREI RECH</div>
-                            <div class='bounty'>₩ 5,000,000</div>
-                        </div>
+
                     </div>
 
-                    <div class="section-main">
-                        <div class="column-left">
-                            <div class='info-grid'>
-                                <span class='info-label'>LOCATION:</span><span class='info-value'>Porto Alegre, RS, Brazil</span>
-                                <span class='info-label'>WORK:</span><span class='info-value'>Apple Developer Academy</span>
-                                <span class='info-label'>FOCUS:</span><span class='info-value'>Full-Stack | iOS Dev</span>
-                                <span class='info-label'>CONTACT:</span><span class='info-value'>linkedin/in/rechandrei</span>
-                                <span class='info-label'>EMAIL:</span><span class='info-value'>andreirech22[at]outlook.com</span>
-                            </div>
-                            <br/>
-                            <div class='section-title'>CURRENT ACTIVITIES</div>
-                            <ul class='record-list'>
-                                <li>Learning Japanese</li><li>Exploring new tech</li>
-                                <li>Building cool projects</li><li>Gaming, Music & Books</li>
-                            </ul>
-                        </div>
-                        <div class="column-right">
-                            <div class="section-repos">
-                                <div class="section-title">FEATURED REPOSITORIES</div>
-                                <div class="repo-list">
-                                    <div class="repo-item"><div class="repo-item-link">Boiadeiro<span>⭐ 123</span></div></div>
-                                    <div class="repo-item"><div class="repo-item-link">Clairfy<span>⭐ 45</span></div></div>
-                                    <div class="repo-item"><div class="repo-item-link">ThinkDev<span>⭐ 78</span></div></div>
-                                </div>
-                            </div>
-                            <br/>
-                            <div class="section-tools">
-                                <div class="section-title">TOOLS & TECH</div>
-                                <div class="tools-list">
-                                    <span class="tool-item">Java</span><span class="tool-item">TypeScript</span>
-                                    <span class="tool-item">Python</span><span class="tool-item">Swift</span>
-                                    <span class="tool-item">Spring</span><span class="tool-item">React</span>
-                                    <span class="tool-item">Node.js</span><span class="tool-item">FastAPI</span>
-                                    <span class="tool-item">Docker</span><span class="tool-item">Git</span>
-                                    <span class="tool-item">PostgreSQL</span><span class="tool-item">MongoDB</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                     
-                    <div class="section-footer-log">
-                        <span class="footer-prompt">></span> <span class="footer-value">LIVE TRANSMISSION // ID: GH-136367100</span><br/>
-                        <span class="footer-prompt">></span> <span class="footer-value">STATUS: ACTIVE</span> | <span class="footer-value">LAST SEEN: PORTO ALEGRE, BRAZIL</span><br/>
-                        <span class="footer-prompt">></span> <span class="footer-value">GITHUB: github.com/AndreiRech<span class="footer-cursor"></span></span>
+
+                    <div class='section-info'>
+
+                        <div class='data-portrait'>
+
+                            <img src="data:image/jpeg;base64,/9j/4A...B==" alt="Andrei Rech Portrait" class="portrait-image" />
+
+                            <div class="data-portrait-grid"></div>
+
+                        </div>
+
+                        <div class='bounty'>₩ 5,000,000</div>
+
+                        <div class='id-number'>GH-USER-136367100</div>
+
+                        <div class="contact-info">
+
+                            <a href="https://linkedin.com/in/rechandrei" target="_blank">LinkedIn</a> | <a href="mailto:andreirech22@outlook.com">Email</a>
+
+                        </div>
+
                     </div>
+
+
+                    <div class='section-details'>
+
+                        <div class='wanted-header'>WANTED DEVELOPER</div>
+
+                        <div class='name'>ANDREI RECH</div>
+
+                        <div class='info-grid'>
+
+                            <span class='info-label'>LOCATION:</span><span class='info-value'>Porto Alegre, RS, Brazil</span>
+
+                            <span class='info-label'>WORK:</span><span class='info-value'>Apple Developer Academy</span>
+
+                            <span class='info-label'>FOCUS:</span><span class='info-value'>Full-Stack Dev | iOS Dev</span>
+
+                            <span class='info-label'>LANGUAGES:</span><span class='info-value'>Java, JS, TS, Python, C, Go, Swift</span>
+
+                            <span class='info-label'>FRAMEWORKS:</span><span class='info-value'>React, Node, FastAPI, Spring</span>
+
+                            <span class='info-label'>TOOLS:</span><span class='info-value'>Docker, Git, Postgres, MongoDB, OracleSQL</span>
+
+                        </div>
+
+                        <div class='criminal-record-header'>CURRENT ACTIVITIES</div>
+
+                        <ul class='record-list'>
+
+                            <li>Learning Japanese</li><li>Exploring new tech</li><li>Building cool projects</li><li>Gaming, Music, Books, Animes</li>
+
+                        </ul>
+
+                    </div>
+
+
+                    <div class="section-repos">
+
+                        <div class="section-title">FEATURED REPOSITORIES</div>
+
+                        <div class="repo-list">
+
+                            <div class="repo-item"><a href="https://github.com/AndreiRech/Boiadeiro" target="_blank">Boiadeiro<span>⭐ 123</span></a></div>
+
+                            <div class="repo-item"><a href="https://github.com/AndreiRech/Clairfy" target="_blank">Clairfy<span>⭐ 45</span></a></div>
+
+                            <div class="repo-item"><a href="https://github.com/AndreiRech/ThinkDev" target="_blank">ThinkDev<span>⭐ 78</span></a></div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="section-terminal">
+
+                        <span class="terminal-prompt">> Accessing data logs...</span><br/>
+
+                        <span class="terminal-output">>> Fetching latest commits...</span><br/>
+
+                        <span class="terminal-output">>> Status: Online and Coding.</span><br/>
+
+                        <span class="terminal-output">>> Ready for deployment.</span><br/>
+
+                        <span class="terminal-prompt">> <span class="terminal-cursor"></span></span>
+
+                    </div>
+
+                    
+
+                    <div class="section-footer-links">
+
+                        <a href="https://github.com/AndreiRech" target="_blank" class="footer-link">GITHUB PROFILE</a>
+
+                    </div>
+
 
                 </div>
+
                 <div class="scan-effect"></div>
+
             </div>
+
         </div>
+
     </foreignObject>
-</svg>
+
+</svg> 
