@@ -1,4 +1,4 @@
-<svg fill="none" viewBox="0 0 800 1000" width="800" height="1000" xmlns="http://www.w3.org/2000/svg">
+<svg fill="none" viewBox="0 0 800 900" width="800" height="900" xmlns="http://www.w3.org/2000/svg">
     <foreignObject width="100%" height="100%">
         <div xmlns="http://www.w3.org/1999/xhtml">
             <style>
@@ -18,7 +18,7 @@
                     
                     --font-family-mono: 'Courier New', Courier, monospace;
 
-                    height: 1000px; width: 800px; display: flex; align-items: center; justify-content: center;
+                    height: 900px; width: 800px; display: flex; align-items: center; justify-content: center;
                     background-color: var(--color-background-dark);
                     font-family: var(--font-family-mono);
                     color: var(--color-text-light);
@@ -225,15 +225,23 @@
                 <div class='container'>
                     <div class="glitch-overlay">
                         <div class="glitch-line glitch-line-h-1" style="top: 5%;"></div>
+                        <div class="glitch-line glitch-line-h-1" style="top: 15%;"></div>
                         <div class="glitch-line glitch-line-h-2" style="top: 25%;"></div>
+                        <div class="glitch-line glitch-line-h-1" style="top: 40%;"></div>
                         <div class="glitch-line glitch-line-h-3" style="top: 45%;"></div>
+                        <div class="glitch-line glitch-line-h-1" style="top: 50%;"></div>
                         <div class="glitch-line glitch-line-h-1" style="top: 65%;"></div>
+                        <div class="glitch-line glitch-line-h-1" style="top: 80%;"></div>
                         <div class="glitch-line glitch-line-h-2" style="top: 85%;"></div>
+                        <div class="glitch-line glitch-line-h-2" style="top: 95%;"></div>
                         
                         <div class="glitch-line-v glitch-line-v-1" style="left: 10%;"></div>
+                        <div class="glitch-line-v glitch-line-v-1" style="left: 15%;"></div>
                         <div class="glitch-line-v glitch-line-v-2" style="left: 30%;"></div>
+                        <div class="glitch-line-v glitch-line-v-1" style="left: 40%;"></div>
                         <div class="glitch-line-v glitch-line-v-3" style="left: 50%;"></div>
                         <div class="glitch-line-v glitch-line-v-4" style="left: 70%;"></div>
+                        <div class="glitch-line-v glitch-line-v-1" style="left: 75%;"></div>
                         <div class="glitch-line-v glitch-line-v-1" style="left: 90%;"></div>
                     </div>
                     
@@ -245,8 +253,8 @@
                         <div class='bounty'>₩ 5,000,000</div>
                         <div class='id-number'>GH-USER-136367100</div>
                         <div class="static-info">
-                            <div>STATUS: AT LARGE</div>
-                            <div>AFFILIATION: FREELANCE NETRUNNER</div>
+                            <div>STATUS: iOS Developes</div>
+                            <div>AFFILIATION: Apple Developer Academy POA</div>
                         </div>
                     </div>
 
@@ -255,7 +263,6 @@
                         <div class='name'>ANDREI RECH</div>
                         <div class='info-grid'>
                             <span class='info-label'>LOCATION:</span><span class='info-value'>Porto Alegre, RS, Brazil</span>
-                            <span class='info-label'>WORK:</span><span class='info-value'>Apple Developer Academy</span>
                             <span class='info-label'>FOCUS:</span><span class='info-value'>Full-Stack Dev | iOS Dev</span>
                             <span class='info-label'>LANGUAGES:</span><span class='info-value'>Java, JS, TS, Python, C, Go, Swift</span>
                             <span class='info-label'>FRAMEWORKS:</span><span class='info-value'>React, Node, FastAPI, Spring</span>
@@ -263,7 +270,7 @@
                         </div>
                         <div class='criminal-record-header'>CURRENT ACTIVITIES</div>
                         <ul class='record-list'>
-                            <li>Learning Japanese</li><li>Exploring new tech</li><li>Building cool projects</li><li>Gaming, Music, Books, Animes</li>
+                            <li>Exploring new tech</li><li>Improving Swift knowledge</li><li>Building personal projects</li><li>Learning Japanese</li>
                         </ul>
                     </div>
 
@@ -295,7 +302,7 @@
                     <div class="section-status-log">
                         <span class="log-user">> USER: AndreiRech</span>
                         <span class="log-status">> STATUS: SYSTEM ONLINE</span>
-                        <span>> LAST KNOWN COORDINATES: 30.0346° S, 51.2177° W</span>
+                        <span>> LAST KNOWN COORDINATES: 30.0368° S, 51.2090° W</span>
                     </div>
 
                 </div>
