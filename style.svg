@@ -1,4 +1,4 @@
-<svg fill="none" viewBox="0 0 800 850" width="800" height="850" xmlns="http://www.w3.org/2000/svg">
+<svg fill="none" viewBox="0 0 800 870" width="800" height="870" xmlns="http://www.w3.org/2000/svg">
     <foreignObject width="100%" height="100%">
         <div xmlns="http://www.w3.org/1999/xhtml">
             <style>
@@ -18,7 +18,7 @@
                     
                     --font-family-mono: 'Courier New', Courier, monospace;
 
-                    height: 850px; width: 800px; display: flex; align-items: center; justify-content: center;
+                    height: 870px; width: 800px; display: flex; align-items: center; justify-content: center;
                     background-color: var(--color-background-dark);
                     font-family: var(--font-family-mono);
                     color: var(--color-text-light);
@@ -289,7 +289,7 @@
                         <div class='id-number'>GH-USER-136367100</div>
                         <div class="static-info">
                             <div>STATUS: iOS Developer</div>
-                            <div>AFFILIATION: Apple Developer Academy POA</div>
+                            <div>AFFILIATION: Apple Developer Academy</div>
                         </div>
                     </div>
 
@@ -299,13 +299,13 @@
                         <div class='info-grid'>
                             <span class='info-label'>LOCATION:</span><span class='info-value'>Porto Alegre, RS, Brazil</span>
                             <span class='info-label'>FOCUS:</span><span class='info-value'>Full-Stack Dev | iOS Dev</span>
-                            <span class='info-label'>LANGUAGES:</span><span class='info-value'>Java, JS, TS, Python, C, Go, Swift</span>
-                            <span class='info-label'>FRAMEWORKS:</span><span class='info-value'>React, Node, FastAPI, Spring</span>
-                            <span class='info-label'>TOOLS:</span><span class='info-value'>Docker, Git, Postgres, MongoDB, OracleSQL</span>
+                            <span class='info-label'>LANGUAGES:</span><span class='info-value'>Swift (UIKit, SwiftUI), Python, TS/JS, Java, C, GO</span>
+                            <span class='info-label'>FRAMEWORKS & TECHNOLOGIES:</span><span class='info-value'>React, Node, FastAPI, Spring, Nest</span>
+                            <span class='info-label'>TOOLS:</span><span class='info-value'>Docker, Git, Postgres, MongoDB, OracleSQL, Figma, Postman, Jupyter Notebook</span>
                         </div>
                         <div class='criminal-record-header'>CURRENT ACTIVITIES</div>
                         <ul class='record-list'>
-                            <li>Exploring new tech</li><li>Improving Swift knowledge</li><li>Building personal projects</li><li>Learning Japanese</li>
+                            <li>Exploring new techs</li><li>Improving Swift knowledge</li><li>Building personal projects</li><li>Learning Japanese</li>
                         </ul>
                     </div>
 
