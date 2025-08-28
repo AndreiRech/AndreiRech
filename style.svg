@@ -300,7 +300,7 @@
                             <span class='info-label'>LOCATION:</span><span class='info-value'>Porto Alegre, RS, Brazil</span>
                             <span class='info-label'>FOCUS:</span><span class='info-value'>Full-Stack Dev | iOS Dev</span>
                             <span class='info-label'>LANGUAGES:</span><span class='info-value'>Swift (UIKit, SwiftUI), Python, TS/JS, Java, C, GO</span>
-                            <span class='info-label'>FRAMEWORKS/TECHNOLOGIES:</span><span class='info-value'>React, Node, FastAPI, Spring, Nest</span>
+                            <span class='info-label'>TECH:</span><span class='info-value'>React, Node, FastAPI, Spring, Nest</span>
                             <span class='info-label'>TOOLS:</span><span class='info-value'>Docker, Git, Postgres, MongoDB, OracleSQL, Figma, Postman, Jupyter Notebook</span>
                         </div>
                         <div class='criminal-record-header'>CURRENT ACTIVITIES</div>
