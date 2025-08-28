@@ -1,4 +1,4 @@
-<svg fill="none" viewBox="0 0 800 870" width="800" height="870" xmlns="http://www.w3.org/2000/svg">
+<svg fill="none" viewBox="0 0 800 900" width="800" height="900" xmlns="http://www.w3.org/2000/svg">
     <foreignObject width="100%" height="100%">
         <div xmlns="http://www.w3.org/1999/xhtml">
             <style>
@@ -18,7 +18,7 @@
                     
                     --font-family-mono: 'Courier New', Courier, monospace;
 
-                    height: 870px; width: 800px; display: flex; align-items: center; justify-content: center;
+                    height: 900px; width: 800px; display: flex; align-items: center; justify-content: center;
                     background-color: var(--color-background-dark);
                     font-family: var(--font-family-mono);
                     color: var(--color-text-light);
@@ -300,7 +300,7 @@
                             <span class='info-label'>LOCATION:</span><span class='info-value'>Porto Alegre, RS, Brazil</span>
                             <span class='info-label'>FOCUS:</span><span class='info-value'>Full-Stack Dev | iOS Dev</span>
                             <span class='info-label'>LANGUAGES:</span><span class='info-value'>Swift (UIKit, SwiftUI), Python, TS/JS, Java, C, GO</span>
-                            <span class='info-label'>FRAMEWORKS & TECHNOLOGIES:</span><span class='info-value'>React, Node, FastAPI, Spring, Nest</span>
+                            <span class='info-label'>FRAMEWORKS/TECHNOLOGIES:</span><span class='info-value'>React, Node, FastAPI, Spring, Nest</span>
                             <span class='info-label'>TOOLS:</span><span class='info-value'>Docker, Git, Postgres, MongoDB, OracleSQL, Figma, Postman, Jupyter Notebook</span>
                         </div>
                         <div class='criminal-record-header'>CURRENT ACTIVITIES</div>
